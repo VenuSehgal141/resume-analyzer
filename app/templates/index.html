@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Companion - CV Analysis</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script>
+        function showLoading() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Career Companion - CV Analysis</h1>
+        <form id="cv-upload-form" action="/analyze" method="post" enctype="multipart/form-data" onsubmit="showLoading()">
+            <div class="form-group">
+                <label for="cv-file">Upload your CV (PDF only):</label>
+                <input type="file" id="cv-file" name="cv-file" accept="application/pdf" required>
+            </div>
+            <div class="form-group">
+                <label for="job-role">Desired Job Role (optional):</label>
+                <input type="text" id="job-role" name="job-role" placeholder="e.g., Software Developer at Google">
+            </div>
+            <div class="form-group">
+                <label for="job-role">Language of the analysis report:</label>
+                <input type="text" id="language" name="language" placeholder="e.g., Hindi or English">
+            </div>
+            <button type="submit">Get Analysis</button>
+        </form>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading, please wait...</p>
+    </div>
+</body>
+</html>
